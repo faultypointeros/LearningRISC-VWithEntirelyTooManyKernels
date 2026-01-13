@@ -37,15 +37,8 @@
                   with pkgs;
                   [
                     clang-tools
-                    cmake
-                    codespell
-                    conan
-                    cppcheck
-                    doxygen
-                    gtest
-                    lcov
-                    vcpkg
-                    vcpkg-tool
+                    qemu
+                    llvm
                   ]
                   ++ (if stdenv.hostPlatform.system == "aarch64-darwin" then [ ] else [ gdb ]);
               };
