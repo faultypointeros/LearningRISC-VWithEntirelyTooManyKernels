@@ -29,19 +29,18 @@
           default =
             pkgs.mkShell.override
               {
-                # Override stdenv in order to change compiler:
-                stdenv = pkgs.clangStdenv;
               }
               {
                 packages =
                   with pkgs;
                   [
-                    clang-tools
                     qemu
-                    llvm
+                    llvmPackages_20.clang-unwrapped
+                    llvmPackages_20.bintools-unwrapped
                     asm-lsp
                   ]
                   ++ (if stdenv.hostPlatform.system == "aarch64-darwin" then [ ] else [ gdb ]);
+
               };
         }
       );
