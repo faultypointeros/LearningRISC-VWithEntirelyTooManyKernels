@@ -39,6 +39,7 @@
                     clang-tools
                     qemu
                     llvm
+                    asm-lsp
                   ]
                   ++ (if stdenv.hostPlatform.system == "aarch64-darwin" then [ ] else [ gdb ]);
               };
