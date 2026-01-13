@@ -4,9 +4,13 @@ set -xeu
 
 QEMU=qemu-system-riscv32
 
-CC=clang 
-CFLAGS="-std=c11 -O2 -g3 -Wall -Wextra --target=riscv32-unknown-elf -fuse-ld=lld -fno-stack-protector -ffreestanding -nostdlib"
-$CC $CFLAGS -Wl,-Tkernel.ld  -o kernel.elf \
+CFLAGS="-std=c11 -O2 -g3 -Wall -Wextra \
+    --target=riscv32-unknown-elf \
+    -fuse-ld=lld \
+    -fno-stack-protector \
+    -ffreestanding
+    -nostdlib"
+clang $CFLAGS -Wl,-Tkernel.ld  -o kernel.elf \
     kernel.S
 
 
