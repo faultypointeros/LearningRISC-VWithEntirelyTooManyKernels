@@ -7,7 +7,7 @@ instruction_set = "riscv"
 compiler = "clang"
 compile_flags_txt = [
   "--target=riscv32-unknown-elf",
-  "-march=rv32imac",
+  "-march=rv32i",
   "-mabi=ilp32",
   "-ffreestanding",
   "-nostdlib"

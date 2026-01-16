@@ -4,14 +4,12 @@ set -xeu
 
 QEMU=qemu-system-riscv32
 
-CFLAGS="-std=c11 -O2 -g3 -Wall -Wextra \
+CFLAGS="-std=c11 -g3 -Wall -Wextra \
     --target=riscv32-unknown-elf \
     -fuse-ld=lld \
-    -fno-stack-protector \
-    -ffreestanding
     -nostdlib"
 clang $CFLAGS -Wl,-Tkernel.ld  -o kernel.elf \
-    kernel.S
+    kernel.s
 
 
 # -machine virt: start the virt machine. virt is a generic riscv emulator
